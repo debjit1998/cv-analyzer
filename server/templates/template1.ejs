@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= user.firstname %> - Resume</title>
+    <meta charset="UTF-8" />
+    <style>
+      .container-t1 {
+        display: flex;
+        width: 100%;
+        margin: 50px auto;
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      .left-column {
+        width: 35%;
+        background-color: #2ecc71;
+        color: #fff;
+        padding: 40px;
+      }
+
+      .right-column {
+        width: 65%;
+        padding: 40px;
+      }
+
+      .container-t1 h1,
+      .container-t1 h2,
+      .container-t1 h3 {
+        margin-bottom: 10px;
+      }
+
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+      }
+
+      .section-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+
+      .skills ul,
+      .languages ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 0;
+      }
+
+      .skills li,
+      .languages li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 25px;
+      }
+
+      .skills li::before,
+      .languages li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 2px;
+        background-color: #fff;
+      }
+
+      .experience,
+      .education {
+        margin-bottom: 30px;
+      }
+
+      .experience h3,
+      .education h3 {
+        margin-bottom: 5px;
+      }
+
+      .experience p,
+      .education p {
+        margin-bottom: 10px;
+      }
+
+      .job-title {
+        font-weight: bold;
+      }
+
+      .date {
+        font-style: italic;
+        color: #777;
+      }
+
+      ul.responsibilities {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-t1">
+      <div class="left-column">
+        <h1><%= user.firstname %> <%= user.lastname %></h1>
+        <% if (user.role) { %>
+        <h2><%= user.role %></h2>
+        <% } %> <% if (user.address) { %>
+        <p><%= user.address %></p>
+        <% } %>
+        <p>
+          <% if (user.email) { %><%= user.email %><% } %> | <% if (user.phone) {
+          %><%= user.phone %><% } %>
+        </p>
+
+        <div class="skills">
+          <h2 class="section-title">Skills</h2>
+          <ul>
+            <% if (user.skills) { %> <% user.skills.forEach(function(skill) { %>
+            <li><%= skill %></li>
+            <% }); %> <% } %>
+          </ul>
+        </div>
+
+        <div class="skills">
+          <h2 class="section-title">Awards</h2>
+          <ul>
+            <% if (user.awards) { %> <% user.awards.forEach(function(award) { %>
+            <li><%= award %></li>
+            <% }); %> <% } %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="profile">
+          <h2 class="section-title">Profile</h2>
+          <% if (user.about) { %>
+          <p><%= user.about %></p>
+          <% } %>
+        </div>
+
+        <div class="experience">
+          <h2 class="section-title">Employment History</h2>
+
+          <% user.experience.forEach(function(experience) { %>
+          <div class="job">
+            <h3 class="job-title">
+              <%= experience.company %>, <%= experience.job_title %>
+            </h3>
+            <p class="date">
+              <%= experience.start_month %> <%= experience.start_year %> – <%=
+              experience.end_month %> <%= experience.end_year %>
+            </p>
+            <span class="responsibilities">
+              <%= experience.job_description %>
+            </span>
+          </div>
+          <% }); %>
+        </div>
+
+        <div class="experience">
+          <h2 class="section-title">Projects</h2>
+
+          <% if (user.projects) { %> <% user.projects.forEach(function(project)
+          { %>
+          <div class="job">
+            <h3 class="job-title"><%= project.title %></h3>
+            <span class="responsibilities"> <%= project.description %> </span>
+          </div>
+          <% }); %> <% } %>
+        </div>
+
+        <div class="education">
+          <h2 class="section-title">Education</h2>
+
+          <% if (user.education) { %> <% user.education.forEach(function(edu) {
+          %>
+          <div class="school">
+            <h3><%= edu.degree %>, <%= edu.institution %></h3>
+            <p class="date">
+              <%= edu.completion_month %> <%= edu.completion_year %>
+            </p>
+            <% if (edu.cgpa) { %>
+            <p>CGPA: <%= edu.cgpa %></p>
+            <% } %> <% if (edu.percentage) { %>
+            <p>Percentage: <%= edu.percentage %></p>
+            <% } %>
+          </div>
+          <% }); %> <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

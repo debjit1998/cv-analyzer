@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patricia Giordano Resume</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      width: 80%;
+      margin: 50px auto;
+    }
+
+    .left-column {
+      width: 35%;
+      background-color: #2ecc71;
+      color: #fff;
+      padding: 40px;
+    }
+
+    .right-column {
+      width: 65%;
+      padding: 40px;
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 10px;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+    }
+
+    .section-title {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    .skills ul,
+    .languages ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0;
+    }
+
+    .skills li,
+    .languages li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px; 
+    }
+
+    .skills li::before,
+    .languages li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 2px;
+      background-color: #fff; 
+    }
+
+    .experience, 
+    .education {
+      margin-bottom: 30px;
+    }
+
+    .experience h3, 
+    .education h3 {
+      margin-bottom: 5px;
+    }
+
+    .experience p, 
+    .education p {
+      margin-bottom: 10px;
+    }
+
+    .job-title {
+      font-weight: bold;
+    }
+
+    .date {
+      font-style: italic;
+      color: #777;
+    }
+
+    ul.responsibilities {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left-column">
+      <img src="patricia-profile.jpg" alt="Patricia Giordano" class="profile-pic"> 
+      <h1>Patricia Giordano</h1>
+      <h2>Receptionist</h2>
+      
+      <p>3620 Ettelhorn Street, San Francisco, CA 94016, United States</p>
+      <p>(530) 732-2544 | hw12@gmail.com</p>
+
+      <div class="skills">
+        <h2 class="section-title">Skills</h2>
+        <ul>
+          <li>Excellent Communication Skills</li>
+          <li>Multitasking Skills</li>
+          <li>Office Technology Skills</li>
+          <li>Scheduling Skills</li>
+          <li>Bookkeeping Skills</li>
+          <li>Customer Service Skills</li>
+        </ul>
+      </div>
+
+      <div class="languages">
+        <h2 class="section-title">Languages</h2>
+        <ul>
+          <li>Italian</li>
+          <li>French</li>
+          <li>Spanish</li>
+        </ul>
+      </div>
+    </div> 
+
+    <div class="right-column">
+      <div class="profile">
+        <h2 class="section-title">Profile</h2>
+        <p>Hardworking and experienced Receptionist with several years of experience serving as a supportive and integral employee in high volume client settings. Experienced in creating schedules, making appointments, selling products, and providing clients with optimal customer service. Bringing forth the ability to manage front desk settings with poise and grace, in addition to managing a variety of administrative duties. Eager to join a new team of people, and assist them as a dedicated and passionate Receptionist.</p>
+      </div>
+
+      <div class="experience">
+        <h2 class="section-title">Employment History</h2>
+
+        <div class="job">
+          <h3 class="job-title">Receptionist, Alfred Young Design, San Francisco</h3>
+          <p class="date">November 2014 – August 2019</p>
+          <ul class="responsibilities">
+            <li>Greeted clients and provided them with information and superior service.</li>
+            <li>Handled calls, collected personal information, and managed schedules.</li>
+            <li>Maintained accurate client records and provided lead designers with excellent assistance.</li>
+            <li>Managed the office database, mail, payroll distribution, and the physical setting of the front office.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3 class="job-title">Receptionist, Little Star Day Spa, Los Angeles</h3>
+          <p class="date">June 2003 – October 2014</p>
+          <ul class="responsibilities">
+            <li>Answered phone calls, greeted clients, and handled all front desk responsibilities.</li>
+            <li>Decorated the front reception area, contributing to the welcoming and peaceful environment of the spa.</li>
+            <li>Handled spa orders, mail, and some accounting responsibilities.</li>
+            <li>Provided clients and prospective clients with information regarding services, spa technology, and products offered.</li>
+          </ul>
+        </div>
+      </div> 
+
+      <div class="education">
+        <h2 class="section-title">Education</h2>
+
+        <div class="school">
+          <h3>Associate of Communications, Pierce College, Los Angeles</h3>
+          <p class="date">August 2003 – May 2005</p>
+        </div>
+
+        <div class="school">
+          <h3>High School Diploma, Maria Regina High School, Sherman Oaks</h3>
+          <p class="date">September 1999 – June 2003</p>
+        </div>
+      </div> 
+    </div> 
+  </div> 
+
+</body>
+</html>
