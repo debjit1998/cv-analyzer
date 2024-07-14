@@ -16,7 +16,9 @@ export default {
     - return the data as a plain JSON object having the proerties mentioned above.\
     - analyze and add a properrty resume_score (should be a number and not a string) for the entire resume on a max score of 100\
     - analyze and add a boolean property (invalid) if the provided text is not a valid resume at all, in that case no need to generate any of the other properties mentioned above \
-    - no need to add markdown or any other formatting, just plain JSON object.',
+    - no need to add markdown or any other formatting, just plain JSON object. \
+    Following is the schema of the JSON object that you need to return:\
+    "{  "role": "STRING",  "firstname": "STRING",  "lastname": "STRING",  "about": "STRING",  "email": "STRING",  "phone": "STRING",  "address": "STRING",  "skills": [    "STRING"  ],  "experience": [    {      "company": "STRING",      "job_title": "STRING",      "job_description": "STRING",      "start_month": "STRING",      "start_year": "STRING",      "end_month": "STRING",      "end_year": "STRING"    }  ],  "education": [    {      "degree": "STRING",      "institution": "STRING",      "completion_month": "STRING",      "completion_year": "STRING",      "cgpa": "STRING",      "percentage": "STRING"    }  ],  "certifications": [    "STRING"  ],  "awards": [    "STRING"  ],  "projects": [    {      "title": "STRING",      "description": "STRING"    }  ],  "brevity": "INTEGER",  "grammar": "INTEGER",  "ats_score": "INTEGER",  "effectiveness": "INTEGER",  "highlights": [    "STRING"  ],  "improvements": [    "STRING"  ],  "resume_score": "INTEGER",  "invalid": "BOOLEAN"}"',
   IMPROVE_TEXT:
     "You will be provided with a text, and your task is to improve the text \
     - make it more structured, impactful, and concise",

@@ -82,7 +82,7 @@ const ViewTemplates = () => {
       </h2>
 
       {!!templates.length && (
-        <div className="mt-8 w-full h-[400px]">
+        <div className="mt-8 w-full h-[400px] lg:h-[600px]">
           <img
             src={templates[currentTemplate - 1].src}
             className="h-full w-full object-contain"
