@@ -53,4 +53,29 @@ const Loader: FC<ILoaderProps> = ({ show, message }) => {
   );
 };
 
+export const InlineLoader: FC<ILoaderProps> = ({ show, message }) => {
+  return (
+    show && (
+      <div
+        className={cn(
+          "w-full h-full flex gap-5 flex-col items-center justify-center"
+        )}
+      >
+        <div className="w-28 h-28 animate-bounce">
+          <img src="/rocket.svg" className="h-full w-full" />
+        </div>
+
+        {!!message && show && (
+          <p
+            id="#typewriter"
+            className="text-white relative z-10 text-[18px] tracking-wider"
+          >
+            <Typewriter words={[message]} loop />
+          </p>
+        )}
+      </div>
+    )
+  );
+};
+
 export default Loader;

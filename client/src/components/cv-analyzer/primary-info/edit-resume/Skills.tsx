@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { CircleX, PlusCircle } from "lucide-react";
 import ResumeContext from "@/contexts/ResumeContext";
 import { Badge } from "../../../ui/badge";
+import CustomTooltip from "@/components/common/CustomTooltip";
 
 const Skills = () => {
   const { resumeInformation } = useContext(ResumeContext)!;
@@ -16,9 +17,11 @@ const Skills = () => {
     <div className="w-full mt-12">
       <h2 className="mt-6 text-[24px] lg:text-[28px] font-bold flex items-center justify-between">
         Skills
-        <button className="bg-transparent">
-          <PlusCircle />
-        </button>
+        <CustomTooltip tooltip="Add Skill">
+          <button className="bg-transparent">
+            <PlusCircle />
+          </button>
+        </CustomTooltip>
       </h2>
 
       <div className="mt-6 flex flex-wrap gap-2">

@@ -27,13 +27,25 @@ app.post("/upload", upload.single("cv"), async (req, res) => {
       type: "buffer",
     });
 
-    const response = await chatCompletions(cvContent, prompts.ANALYZE_RESUME);
+    const [analysisResponse, scoreResponse] = await Promise.all([
+      chatCompletions(cvContent, prompts.ANALYZE_RESUME),
+      chatCompletions(cvContent, prompts.CALCULATE_SCORE),
+    ]);
 
-    res.json(
-      response.choices?.[0]?.message?.content
-        ? JSON.parse(response.choices?.[0]?.message?.content)
-        : null
+    let parsedAnalysis = JSON.parse(
+      analysisResponse.choices?.[0]?.message?.content
     );
+    let parsedScore = JSON.parse(scoreResponse.choices?.[0]?.message?.content);
+
+    parsedAnalysis = {
+      ...parsedAnalysis,
+      brevity: parsedScore.brevity?.score || 0,
+      grammar: parsedScore.grammar?.score || 0,
+      ats_score: parsedScore.ats_score?.score || 0,
+      effectiveness: parsedScore.effectiveness?.score || 0,
+    };
+
+    return res.json(parsedAnalysis);
   } catch (error) {
     console.log(error);
     res.status(400).json({ message: error.message || "Something went wrong" });

@@ -6,6 +6,7 @@ import ResumeContext from "@/contexts/ResumeContext";
 import { generatePDF } from "@/lib/utils";
 import CustomTooltip from "@/components/common/CustomTooltip";
 import jsPDF from "jspdf";
+import { InlineLoader } from "@/components/common/Loader";
 
 interface ITemplate {
   src: string;
@@ -66,20 +67,26 @@ const ViewTemplates = () => {
           )}
 
           <button
-            disabled={currentTemplate === 1}
+            disabled={currentTemplate === 1 || isLoading}
             onClick={() => setCurrentTemplate(1)}
           >
             <ChevronLeft />
           </button>
           <span className="text-[16px]">{currentTemplate}</span>
           <button
-            disabled={currentTemplate === 2}
+            disabled={currentTemplate === 2 || isLoading}
             onClick={() => setCurrentTemplate(2)}
           >
             <ChevronRight />
           </button>
         </div>
       </h2>
+
+      {isLoading && (
+        <div className="w-full h-[400px] lg:h-[600px]">
+          <InlineLoader show={isLoading} />
+        </div>
+      )}
 
       {!!templates.length && (
         <div className="mt-8 w-full h-[400px] lg:h-[600px]">

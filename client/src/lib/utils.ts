@@ -12,6 +12,7 @@ export const generatePDF: (
 ) => Promise<{ src: string; pdf: jsPDF | null }> = async (html) => {
   try {
     const tempDiv = document.createElement("div");
+    tempDiv.style.width = "1200px";
     tempDiv.innerHTML = html;
 
     document.body.appendChild(tempDiv);

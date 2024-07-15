@@ -8,6 +8,7 @@ import { InputWithLabel } from "../../../common/InputWithLabel";
 import SelectWithLabel from "../../../common/SelectWithLabel";
 import { months, years } from "@/constants";
 import { cn } from "@/lib/utils";
+import CustomTooltip from "@/components/common/CustomTooltip";
 
 const EducationCard: FC<IEducation> = ({
   degree,
@@ -80,17 +81,19 @@ const Education = () => {
       >
         Education
         <div className="flex items-center gap-2">
-          <Button
-            className={cn("bg-transparent px-1", {
-              "hover:bg-transparent": isCollapsed,
-            })}
-          >
-            <PlusCircle
-              className={cn("transition-all delay-300", {
-                "text-foreground": isCollapsed,
+          <CustomTooltip tooltip="Add Education">
+            <Button
+              className={cn("bg-transparent px-1", {
+                "hover:bg-transparent": isCollapsed,
               })}
-            />
-          </Button>
+            >
+              <PlusCircle
+                className={cn("transition-all delay-300", {
+                  "text-foreground": isCollapsed,
+                })}
+              />
+            </Button>
+          </CustomTooltip>
           <button
             onClick={() => setIsCollapsed((prev) => !prev)}
             className={cn(
