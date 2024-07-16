@@ -40,5 +40,6 @@ export default {
     Step 3: Assess Overall Impact:First Impression: Does the resume make a positive and memorable first impression?Clarity of Value: Is the candidate\'s value proposition clearly communicated?Call to Action: Does the resume encourage further engagement (e.g., scheduling an interview)?\
     Step 4: Calculate effectiveness score and reason:Following the above steps, draw your inferences and calculate a effectiveness score out of 100. Also, provide a short paragraph within 30 words summarising what can be done better to fix the rating?\
     Please provide the final output as a JSON object. It should contain 4 keys: \'brevity\', \'grammar\', \'ats_score\', and \'effectiveness\'. Each of the keys should be an object containing 2 fields:\'score\': a score calculated out of 100 and \'suggestions\': a paragraph on how the score can be improved. Following is the final output structure:"{"brevity":{"score":"number","suggestions":"string"},"grammar":{"score":"number","suggestions":"string"},"ats_score":{"score":"number","suggestions":"string"},"effectiveness":{"score":"number","suggestions":"string"}}"\
-    Always return the ats value as ats_score and not ats as the key name',
+    Always return the ats value as ats_score and not ats as the key name \
+    - no need to add markdown or any other formatting, just plain JSON object.',
 };
